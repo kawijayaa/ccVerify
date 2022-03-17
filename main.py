@@ -20,6 +20,7 @@ def valid_card_type(card_number):
 
 while True:    
     cc_number = input("Enter Credit Card Number: ")
+    cc_number = "".join(cc_number.split())
     try:
         cc_number_test = int(cc_number)
     except:
@@ -41,15 +42,17 @@ while True:
         num = int(x)
         odd_digit_sum += num
         
+    cc_number_split = " ".join([cc_number[i:i+4] for i in range(0, len(cc_number), 4)])
+    
     verify_num = odd_digit_sum + even_digit_sum
     if verify_num % 10 == 0:
         if valid_card_type(cc_number):
-            print(f"{cc_number} is a valid {valid_card_type(cc_number)} card number.")
+            print(f"{cc_number_split} is a valid {valid_card_type(cc_number)} card number.")
         else:
-            print(f"{cc_number} is not a valid card number.")
+            print(f"{cc_number_split} is not a valid card number.")
     else:
-        if valid_card_type(cc_number):
-            print(f"{cc_number} is not a valid {valid_card_type(cc_number)} card number.")
+        if valid_card_type(cc_number_split):
+            print(f"{cc_number_split} is not a valid {valid_card_type(cc_number)} card number.")
         else:
-            print(f"{cc_number} is not a valid card number.")
+            print(f"{cc_number_split} is not a valid card number.")
 
