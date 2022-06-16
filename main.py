@@ -36,7 +36,7 @@ while True:
         else:
             even_digit_sum += num*2
         
-    odd_placed_num = cc_number[::-2]
+    odd_placed_num = cc_number[-1::-2]
     odd_digit_sum = 0
     for x in odd_placed_num:
         num = int(x)
